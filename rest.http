@@ -1,0 +1,157 @@
+# Checking login page
+# 1. Correct credentials
+# POST http://127.0.0.1:3333/api/users/login http/1.1
+# Content-Type: application/json
+
+# {"email":"damareshwarakumar@gmail.com", "password":"123456"}
+
+
+
+
+# 2. Incorrect Username
+# POST http://127.0.0.1:3000/api/users/login http/1.1
+# Content-Type: application/json
+
+# {"email":"damareshwarakumar@gmail.edu", "password":"123456"}
+
+
+
+
+# 3. Incorrect Password
+# POST http://127.0.0.1:3000/api/users/login http/1.1
+# Content-Type: application/json
+
+# {"email":"damareshwarakumar@gmail.com", "password":"1234567"}
+
+
+
+
+# Checking Protected route
+# GET http://127.0.0.1:3333/api/users/current http/1.1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTJjNGNmODVlMWY4YzcwYzI1ZWM3NCIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMDgzMDE5OSwiZXhwIjoxNjIwODMzNzk5fQ.tw_sVv3V9uqhqUERENtRce1O3-UhbQr-EW3xMN9E7WI
+
+
+# Checking registration validation
+# POST http://127.0.0.1:3000/api/users/register http/1.1
+# Content-Type: application/json
+
+# { "name": "a"}
+
+
+# Checking Registration Backend validation
+# POST http://127.0.0.1:3000/api/users/register
+# Content-Type: application/json
+
+# {"name": "Adarsh", "email":"badarsh@gmail.com", "password": "123456", "password2": "123456"}
+
+# Checking Login Backend validation
+# POST http://127.0.0.1:3000/api/users/login
+# Content-Type: application/json
+
+# {"email":"badarsh@gmail.com", "password": "123456"}
+
+
+
+# # Checking Profile
+# GET http://127.0.0.1:3333/api/profile http/1.1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTJjNGNmODVlMWY4YzcwYzI1ZWM3NCIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMDgzMzkwNiwiZXhwIjoxNjIwODM3NTA2fQ.ubxHA_4NTKxzlF22M1R7OLPPRur22nnlOG4aqW0esKs
+
+
+# Checking Profile Validation
+# POST http://127.0.0.1:3333/api/profile http/1.1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTJjNGNmODVlMWY4YzcwYzI1ZWM3NCIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMDgzMzkwNiwiZXhwIjoxNjIwODM3NTA2fQ.ubxHA_4NTKxzlF22M1R7OLPPRur22nnlOG4aqW0esKs
+
+# {
+#     "handle": "Dhamareshwarakumar",
+#     "status": "Developer",
+#     "skills": "HTML,CSS,PHP,JavaScript",
+#     "company": "DK Enterprises",
+#     "website": "damareshwarakumar.com"
+# }
+
+
+# # Checking handle
+# GET http://127.0.0.1:3333/api/profile/handle/Dhamareshwarakumar http/1.1
+# Content-Type: application/json
+
+
+# #Checking User
+# GET http://127.0.0.1:3333/api/profile/user/6092c4cf85e1f8c70c25ec74aab http/1.1
+# Content-Type: application/json
+
+
+# Get all Users
+# GET http://127.0.0.1:3333/api/profile/all http/1.1
+# Content-Type: application/json
+
+
+# # adding profile
+# POST http://127.0.0.1:3333/api/profile/
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTJjNGNmODVlMWY4YzcwYzI1ZWM3NCIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMTI1NDUwOSwiZXhwIjoxNjIxMjU4MTA5fQ.RVdXs510-UywjvZOJ4Mn8ZqroS9MssZhcsbWoTNK2cQ
+
+# {
+#     "handle": "Dhamareshwarakumar",
+#     "Company": "DK Enterprises",
+#     "website": "https://gmritchapter.acm.org",
+#     "location": "Eluru",
+#     "bio": "This is my bio",
+#     "status": "single",
+#     "github": "https://github.com/Dhamareshwarakumar",
+#     "skills": "html,css,javascript,react,nodejs,php,mysql,mongodb",
+#     "twiter": "https://twitter.com/Dhamareshwarakumar",
+#     "facebook": "https://facebook.com/Dhamareshwarakumar",
+#     "linkedin": "https://linkedin.com/Dhamareshwarakumar",
+#     "instagram": "https://instagram.com/Dhamareshwarakumar"
+# }
+
+
+
+# # Adding Experience
+# POST http://127.0.0.1:3333/api/profile/experience
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTJjNGNmODVlMWY4YzcwYzI1ZWM3NCIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMTI1NDUwOSwiZXhwIjoxNjIxMjU4MTA5fQ.RVdXs510-UywjvZOJ4Mn8ZqroS9MssZhcsbWoTNK2cQ
+
+# {
+#     "title": "Full Stack Developer",
+#     "company": "ACM GMRIT",
+#     "from": "01-01-20",
+#     "description": "Studenty Coordinator" 
+# }
+
+# POST http://127.0.0.1:3333/api/profile/education
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTJjNGNmODVlMWY4YzcwYzI1ZWM3NCIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMTI1NDUwOSwiZXhwIjoxNjIxMjU4MTA5fQ.RVdXs510-UywjvZOJ4Mn8ZqroS9MssZhcsbWoTNK2cQ
+
+# {
+#     "school": "GMR Institute of Technology",
+#     "degree": "bachelor of Technology",
+#     "fieldofstudy": "CSE",
+#     "from": "2018-05-15",
+#     "to": "2022-05-25",
+#     "current": true,
+#     "description": "Student"
+# }
+
+
+
+# DELETE http://127.0.0.1:3333/api/profile/experience/60a269399b2e324bc44bdb27
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTUwYTFlY2QwMDUyYzJhZjcyZjM0NyIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMTg2NDc5MiwiZXhwIjoxNjIxODY4MzkyfQ.H4UJR6ywyBdv_ZA-hcxQnPJ8y8p_HeTOiQGd23eT2lg
+
+
+DELETE http://127.0.0.1:3333/api/posts/comment/60abb2ad8f657762a4abcb88/60abbf4f2cb1ac69fac050de
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTUwYTFlY2QwMDUyYzJhZjcyZjM0NyIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMTg2ODc4OCwiZXhwIjoxNjIxODcyMzg4fQ.OMj0-_qMfsr4npR45q8vfRHIJV8tR8WnKrjjDVToxUU
+
+
+# GET http://127.0.0.1:3333/api/posts/
+
+
+
+
+# POST http://127.0.0.1:3333/api/posts/like/60abb2ad8f657762a4abcb88
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTUwYTFlY2QwMDUyYzJhZjcyZjM0NyIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUyMzFmMmU2ZmI2M2IwMGY4NjIxY2I3NmZmOTczNTlhP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYyMTg2ODc4OCwiZXhwIjoxNjIxODcyMzg4fQ.OMj0-_qMfsr4npR45q8vfRHIJV8tR8WnKrjjDVToxUU
