@@ -1,0 +1,28 @@
+{
+  "name": "devconnector_backend",
+  "version": "1.0.0",
+  "description": "Devconnector is a social media like application for developers, developed using MERN",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhamareshwarakumar/devconnector.git"
+  },
+  "author": "Dhamareshwarakumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhamareshwarakumar/devconnector/issues"
+  },
+  "homepage": "https://github.com/Dhamareshwarakumar/devconnector#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

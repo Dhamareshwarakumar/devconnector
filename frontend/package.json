@@ -1,0 +1,31 @@
+{
+  "name": "devconnector_frontend",
+  "version": "1.0.0",
+  "description": "Devconnector is a social media like application for developers, developed using MERN",
+  "source": "index.html",
+  "scripts": {
+    "start": "npx parcel --port 3000",
+    "build": "npx parcel build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhamareshwarakumar/devconnector.git"
+  },
+  "author": "Dhamareshwarakumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhamareshwarakumar/devconnector/issues"
+  },
+  "homepage": "https://github.com/Dhamareshwarakumar/devconnector#readme",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  }
+}
