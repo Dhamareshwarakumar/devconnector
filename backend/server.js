@@ -3,10 +3,14 @@ const app = express();
 const dotenv = require('dotenv');
 const db = require('./config/db');
 
+// Import Routers
+const {
+    userRouter
+} = require('./routes');
+
 
 // Middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 
 // Configuration
@@ -22,6 +26,7 @@ const PORT = process.env.PORT || 3333;
 app.get('/api', (req, res) => {
     return res.json({ msg: "Welcome to DevConnector" });
 });
+app.use('/api/user', userRouter);
 app.get('*', express.static('public/dist'));
 
 
