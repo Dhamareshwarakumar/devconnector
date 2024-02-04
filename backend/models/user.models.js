@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const crypto = require('crypto');
 const { v4: uuidv4 } = require('uuid');
 const { validateUrl } = require('../utils/validator');
-const { EMAIL_REGEX } = require('../utils/constants');
+const { NAME_REGEX, EMAIL_REGEX } = require('../utils/constants');
 
 const userSchema = new Schema({
     name: {
@@ -11,7 +11,8 @@ const userSchema = new Schema({
         trim: true,
         required: [true, 'Name is required'],
         minlength: [3, 'Name cannot be less than 3 characters'],
-        maxlength: [255, 'Name cannot be more than 255 characters']
+        maxlength: [255, 'Name cannot be more than 255 characters'],
+        match: [NAME_REGEX, 'Please provide a valid name']
     },
     email: {
         type: String,
@@ -49,7 +50,7 @@ userSchema.virtual('password')
 
 // Methods  (DO NOT USE ARROW FUNCTIONS TO CREATE MONGOOSE METHODS)
 userSchema.methods.hashPassword = function (plainPassword) {
-    if (!plainPassword) return "";
+    if (!plainPassword) return '';
     try {
         return crypto.createHmac('sha256', this.salt)
             .update(plainPassword)

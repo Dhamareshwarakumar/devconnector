@@ -1,6 +1,6 @@
 const { URL } = require('url');
 
-exports.validateUrl = (url, protocols = ['http', 'https']) => {
+const validateUrl = (url, protocols = ['http', 'https']) => {
     try {
         newUrl = new URL(url);
         return protocols
@@ -11,4 +11,11 @@ exports.validateUrl = (url, protocols = ['http', 'https']) => {
     } catch (err) {
         return false;
     }
+}
+
+const isEmpty = (value) => value === undefined || value === null || typeof value === 'object' && Object.keys(value).length === 0 || typeof value === 'string' && value.trim().length === 0;
+
+module.exports = {
+    validateUrl,
+    isEmpty
 }
